@@ -26,18 +26,6 @@ namespace WebDeveloper.Controllers
         {
             return View(_client.getClientById(id));
         }
-
-        public ActionResult Delete(int id)
-        {
-            var client = _client.getClientById(id);
-            if (client == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            return View(client);
-        }
-
         //Permite diferenciar al enrutador que metodo create tomar.
         [HttpPost]
         public ActionResult Create(Client client)
@@ -61,6 +49,17 @@ namespace WebDeveloper.Controllers
             return View();
         }
 
+        public ActionResult Delete(int id)
+        {
+            var client = _client.getClientById(id);
+            if (client == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(client);
+        }
+
         [HttpPost]
         public ActionResult Delete(Client client)
         {
@@ -71,7 +70,6 @@ namespace WebDeveloper.Controllers
             //}
             return View();
         }
-
         //DBContext.- Administra la clase.
     }
 }

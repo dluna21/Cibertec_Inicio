@@ -15,6 +15,7 @@ namespace Webdeveloper.DataAccess
         //ctor -> tab -tab : genera el constructor de la clase
         public WebContextDb() : base("name=WebDeveloperConnectionString")
         {
+            Database.SetInitializer(new WebDeveloperInitializer());
         }
 
         public DbSet<Client> Clients { get; set; }
