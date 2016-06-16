@@ -5,22 +5,14 @@ using WebDeveloper.Model;
 
 namespace Webdeveloper.DataAccess
 {
-    public class ClientData
+    public class ClientData:BaseDataAccess<Client>
     {
-        public List<Client> GetList()
-        {
-            //using crea un objeto y cuando termina de utilizarse lo destruye
+        public Client getClientById(int id) {
             using (var dbcontext = new WebContextDb())
             {
-                return dbcontext.Clients.ToList();
+                return dbcontext.Clients.FirstOrDefault(x => x.ID == id);
             }
-        }
-        public List<Client> GetFakeData()
-        {
-            return new List<Client> {
-               new Client { ID=1,Name="Juan",LastName="Perez"},
-               new Client { ID=2,Name="Raul",LastName="Ruidiaz"}
-            };
+                //return (Client)(this.GetList().Find(x => x.ID == id));
         }
     }
 }

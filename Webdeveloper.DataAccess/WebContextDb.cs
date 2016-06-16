@@ -16,6 +16,7 @@ namespace Webdeveloper.DataAccess
         public WebContextDb() : base("name=WebDeveloperConnectionString")
         {
         }
+
         public DbSet<Client> Clients { get; set; }
 
         //Elimina la extension 'es' en la creacion de nombres de los DbContext
