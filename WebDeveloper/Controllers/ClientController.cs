@@ -17,7 +17,8 @@ namespace WebDeveloper.Controllers
         {
             return View(_client.GetList());
         }
-        public ActionResult Create() {
+        public ActionResult Create()
+        {
             return View(new Client());
         }
 
@@ -63,11 +64,11 @@ namespace WebDeveloper.Controllers
         [HttpPost]
         public ActionResult Delete(Client client)
         {
-            if (ModelState.IsValid)
-            {
-                _client.Delete(client);
+            //if (ModelState.IsValid)
+            //{
+            if (_client.Delete(client) > 0)
                 return RedirectToAction("Index");
-            }
+            //}
             return View();
         }
 
