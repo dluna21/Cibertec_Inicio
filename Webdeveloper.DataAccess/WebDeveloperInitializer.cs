@@ -23,6 +23,15 @@ namespace Webdeveloper.DataAccess
 
             clients.ForEach(c=> context.Clients.Add(c));
             context.SaveChanges();
+
+            var Product = new List<Product>
+            {
+                new Product { Code="GT20161", Description="Galleta Soda", PriceCost=0.4f,PriceSale=0.6f,Amount=25,DateRegister=DateTime.Now,DateExpiration=DateTime.Now,Active=true},
+                new Product { Code="GT20162", Description="Galleta Vainilla", PriceCost=0.4f,PriceSale=0.6f,Amount=25,DateRegister=DateTime.Now,DateExpiration=DateTime.Now,Active=true},
+                new Product { Code="GT20163", Description="Galleta Club Social", PriceCost=0.6f,PriceSale=0.7f,Amount=25,DateRegister=DateTime.Now,DateExpiration=DateTime.Now,Active=true},
+            };
+            Product.ForEach(c => context.Products.Add(c));
+            context.SaveChanges();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Webdeveloper.DataAccess
         }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         //Elimina la extension 'es' en la creacion de nombres de los DbContext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
