@@ -33,13 +33,13 @@ namespace WebDeveloper.Model
         [Display(Name = "Date Expiration")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime DateExpiration { get; set; } = DateTime.Now;
+        public DateTime? DateExpiration { get; set; } = DateTime.Now;
 
         [Display(Name = "Date Register")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Editable(false)]
-        public DateTime DateRegister { get; set; } = DateTime.Now;
+        public DateTime? DateRegister { get; set; } = DateTime.Now;
 
         [Display(Name = "Active")]
         public bool Active { get; set; } = true;

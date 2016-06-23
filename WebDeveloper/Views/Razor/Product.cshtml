@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebDeveloper.Model.Product>
+@using WebDeveloper.Helpers
+
+
+@helper DisplayPriceRazor(double price)
+{
+if (price == 0)
+{
+        <span>Free !!!</span>
+}
+else {
+        <span>@price</span>
+}
+}
+
+@{
+    ViewBag.Title = "Product";
+}
+<h2>Product</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <span>@item.Description: </span>
+
+            @DisplayPriceRazor(@item.PriceSale)
+
+            <span> Fecha Expiración: </span> 
+            <div>
+                @Html.DisplayDateOrNull(@item.DateExpiration)
+            </div>
+            
+            <div>
+                    @CustomHelper.DisplayPriceStatic(@item.PriceSale)
+                </div>
+            <div>
+                @Html.DisplayPriceExtension(item.PriceSale)
+            </div>
+        </li>
+    }
+</ul>

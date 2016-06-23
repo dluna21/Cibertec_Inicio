@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebDeveloper.Model
 {
@@ -14,5 +15,8 @@ namespace WebDeveloper.Model
         [Display(Name = "Last Name")]
         [Required(ErrorMessage = "The Last Name is required")]
         public string LastName { get; set; }
+        
+        [DataType(DataType.DateTime)]
+        public DateTime DateRegistre { get; set; }
     }
 }
