@@ -14,11 +14,16 @@ namespace WebDeveloper
             //Permite la seguridad en mvc
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Razor",
-                url: "Razor/{id}",
-                defaults: new { controller = "Razor", action = "Product", id = UrlParameter.Optional }
-            );
+            //Razor se trabaja en el formato 25-12-2016 con guion
+            //routes.MapRoute(
+            //    name: "RazorDate",
+            //    url: "Razor/{date}",
+            //    defaults: new { controller = "Razor",
+            //                    action = "EntryDate"
+            //    }
+            //);
+
+            routes.MapMvcAttributeRoutes();
             
             routes.MapRoute(
                 name: "Default",

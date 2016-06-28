@@ -4,13 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webdeveloper.DataAccess;
+using WebDeveloper.ActionFilters;
 using WebDeveloper.Model;
 
 namespace WebDeveloper.Controllers
 {
+    [LogActionFilter]
+    [RoutePrefix("Razor")]
     public class RazorController : Controller
     {
         // GET: Razor
+        [Route] //Toma la accion definida
         public ActionResult Index()
         {
 
@@ -29,5 +33,18 @@ namespace WebDeveloper.Controllers
             var product = new ProductData();
             return View(product.GetFakeProducts());
         }
+
+        [Route("Entry/{id:int}")]
+        public string EntryId(int id)
+        {
+            return id.ToString();
+        }
+
+        [Route("Entry/{date:DateTime}")]
+        public ActionResult EntryDate(DateTime? date) {
+            ViewBag.Date = date.Value.ToShortDateString();
+            return View();     
+        }
+        
     }
 }
