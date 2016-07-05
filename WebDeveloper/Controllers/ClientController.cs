@@ -10,7 +10,13 @@ namespace WebDeveloper.Controllers
 {
     public class ClientController : Controller
     {
-        private ClientData _client = new ClientData();
+        private ClientData _client;
+
+        //Para la injeccion de dependencia es importante que la clase tenga un constructor
+        public ClientController(ClientData client)
+        {
+            _client = client;
+        }
 
         // GET: Client
         public ActionResult Index()

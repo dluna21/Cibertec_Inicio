@@ -1,5 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using LightInject;
+using Microsoft.Owin;
 using Owin;
+using System.Reflection;
+using Webdeveloper.DataAccess;
+using WebDeveloper.Model;
 
 [assembly: OwinStartupAttribute(typeof(WebDeveloper.Startup))]
 namespace WebDeveloper
@@ -8,7 +12,14 @@ namespace WebDeveloper
     {
         public void Configuration(IAppBuilder app)
         {
-            //ConfigureAuth(app);
+            //todos los contenedores deben implementorse un sola vez
+            //patron facade contenedeor de constructores idea de los injectores de dependencia.
+
+            var container = new ServiceContainer();
+            container.RegisterAssembly(Assembly.GetExecutingAssembly());
+            container.RegisterAssembly("WebDeveloper.*.dll");
+            container.RegisterControllers();
+            container.EnableMvc();
         }
     }
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WebDeveloper.Model;
 
 namespace Webdeveloper.DataAccess
@@ -15,7 +10,7 @@ namespace Webdeveloper.DataAccess
         //ctor -> tab -tab : genera el constructor de la clase
         public WebContextDb() : base("name=WebDeveloperConnectionString")
         {
-           // Database.SetInitializer(new WebDeveloperInitializer());
+            //Database.SetInitializer(new WebDeveloperInitializer());
         }
 
         public DbSet<Client> Clients { get; set; }
