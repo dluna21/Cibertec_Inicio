@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using WebDeveloper.Resources
 
 namespace WebDeveloper.Model
 {
@@ -12,18 +13,18 @@ namespace WebDeveloper.Model
     {
         public int ID { get; set; }
 
-        [Display(Name = "Code")]
+        [Display(Name = "Product_Code",ResourceType =typeof(Resource))]
         [Required(ErrorMessage = "The Code is required")]
         public string Code { get; set; }
 
-        [Display(Name = "Description")]
+        [Display(Name = "Product_Description", ResourceType = typeof(Resource))]
         public string Description { get; set; }
 
-        [Display(Name = "Price Sale")]
+        [Display(Name = "Product_PriceSale", ResourceType = typeof(Resource))]
         [Required(ErrorMessage = "The Price Sale is required")]
         public float PriceSale { get; set; }
 
-        [Display(Name = "Cost Sale")]
+        [Display(Name = "Product_CostSale", ResourceType = typeof(Resource))]
         [Required(ErrorMessage = "The Cost Sale is required")]
         public float PriceCost { get; set; }
 

@@ -20,6 +20,7 @@ namespace WebDeveloper
             container.RegisterAssembly("WebDeveloper.*.dll");
             container.RegisterControllers();
             container.EnableMvc();
+             
         }
     }
 }
