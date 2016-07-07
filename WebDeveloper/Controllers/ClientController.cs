@@ -8,6 +8,7 @@ using WebDeveloper.Model;
 
 namespace WebDeveloper.Controllers
 {
+    [Authorize]
     public class ClientController : Controller
     {
         private ClientData _client;
